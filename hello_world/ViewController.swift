@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var titleElement: UIImageView!
+    @IBOutlet weak var welcomeBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var shalomBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +27,32 @@ class ViewController: UIViewController {
     }
 
 
+    func goToStartPage() {
+        titleElement.isHidden = true;
+        background.isHidden = true;
+        backBtn.isHidden = true;
+        welcomeBtn.isHidden = false;
+        shalomBtn.isHidden = false;
+    }
+    
+    func goToEndPage() {
+        titleElement.isHidden = false;
+        background.isHidden = false;
+        backBtn.isHidden = false;
+        welcomeBtn.isHidden = true;
+        shalomBtn.isHidden = true;
+    }
+    
+    @IBAction func welcomePressed(_ sender: Any) {
+        goToEndPage()
+    }
+    
+    @IBAction func shalomBtnPressed(_ sender: Any) {
+            goToEndPage()
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        goToStartPage()
+    }
 }
 
